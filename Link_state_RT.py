@@ -15,49 +15,6 @@ import os
     Project : Simulation of Link-State Routing Protocol
     """
 
-# Description :
-"""
-    The program accepts the network topology details in terms of the cost of links, and provides the shortest path tree for the
-    network. It uses Dijkstra's Algorithm to construct its routing table.
-"""
-
-# Logic :
-"""
-    1. The program first asks for a network topology file. It validates the data and
-       store in matrix format.
-    2. The next step is to create the connection table. The program takes the source
-       router as input, and performs the Dijkstra Algorithm on it.
-    3. For Dijkstra Algorithm, the program follows below steps:
-        A. It selects the source node as the root of the tree and adds it to the path.
-           Then it sets the shortest distances for all the neighbors of the root to the cost
-           between the root and those neighbors. Finally, it sets the shortest distance of the root to zero.
-        B. Then it repeats the following two steps in a loop until all nodes are added to the path:
-            a. It searches for nodes which are not in the path. It then selects the one with minimum shortest distance and adds it to the path.
-            b. It updates the shortest distance for all remaining nodes using the shortest distance of the node just moved to the path in the previous step.
-    4. At every step, it keeps track of two types of nodes:
-        A. The interface used to go to the next router. (For connection table.)
-        B. The parent node of the last added node. (To create the final path.)
-    5. Once both connection table and parent table are ready, the shortest path is
-       found from given source to destination by following the steps:
-        A. Starting from the destination node, it follows the parent node from the parent
-           table to reach the source, and provides the reverse path.
-        B. The total cost is found by adding the cost of all the nodes in the previous step.
-    6. If there is no path from the given source to destination, the program returns with
-       such a message.
-    7. The program also performs some exception handling as described below:
-        A. If there is no topology file as entered, it will generate an error message.
-        B. If the entered source or destination router is invalid, it will generate an error message.
-        C. If the entered source or destination router are the same, it will generate an error message.
-        D. If there is no source router selected before asking for the path, it will generate an error message.
-"""
-
-# Run Instructions :
-"""
-    Run the program by command : python Link_state_RT.py
-    
-    Select appropriate command to perform different tasks.
-"""
-
 ######################################################################################################################################
 # Program Starts
 ######################################################################################################################################
